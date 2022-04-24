@@ -11,7 +11,7 @@ router.post('/', (req, res) => {
 });
 
 router.delete('/',(req, res) => {
-    if(isNaN(req.body.id)){
+    if(isNaN(req.params.id)){
         res.send('ERROR: Por favor ingrese un numero!!');
     }else{
         (async () => {
