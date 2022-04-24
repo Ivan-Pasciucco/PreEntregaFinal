@@ -59,7 +59,7 @@ router.delete('/', (req, res, next) => {
     }
 },
     (req, res) => {
-        if (isNaN(req.body.id)) {
+        if (isNaN(req.params.id)) {
             res.send('Error: No se ingreso un numero');
         } else {
             (async () => {
