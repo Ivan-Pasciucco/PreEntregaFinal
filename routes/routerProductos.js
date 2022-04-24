@@ -3,7 +3,7 @@ const router = express.Router();
 const Productos = require('../js/productos');
 const productos = new Productos();
 
-const admin = false;
+const admin = true;
 
 router.get('/', (req, res) => {
     (async () => {
@@ -22,7 +22,7 @@ router.get('/:id', (req, res) => {
         })();
     }
 });
-
+//
 router.post('/', (req, res, next) => {
     if (admin === true) {
         next();
@@ -46,7 +46,7 @@ router.put('/', (req, res, next) => {
 },
     (req, res) => {
         (async () => {
-            const resp = await productos.editProduct(req.body);
+            const resp = await productos.editProduct(req.params);
             res.send(resp);
         })()
     });
@@ -63,7 +63,7 @@ router.delete('/', (req, res, next) => {
             res.send('Error: No se ingreso un numero');
         } else {
             (async () => {
-                const resp = await productos.deleteProduct(req.body.id);
+                const resp = await productos.deleteProduct(req.params.id);
                 res.send(resp);
             })();
         }

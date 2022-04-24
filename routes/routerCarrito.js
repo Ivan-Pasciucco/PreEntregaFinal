@@ -15,7 +15,7 @@ router.delete('/',(req, res) => {
         res.send('ERROR: Por favor ingrese un numero!!');
     }else{
         (async () => {
-            const respuesta = await carrito.deleteCart(req.body.id);
+            const respuesta = await carrito.deleteCart(req.params.id);
             res.send(respuesta);
         })();
     }
